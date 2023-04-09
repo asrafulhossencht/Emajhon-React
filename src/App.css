@@ -1,0 +1,13 @@
+* {
+	margin: 0px;
+}
+
+body {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+}
+
+#root {
+	min-width: 100%;
+}
