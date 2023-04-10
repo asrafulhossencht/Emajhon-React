@@ -1,7 +1,10 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useState } from "react";
 import "./Order.css";
 
-const Order = ({ addedProducts }) => {
+const Order = ({ addedProducts, children, clearCartEvent }) => {
 	let selectedItems = 0,
 		totalProductsPrice = 0,
 		totalShippingCharge = 0;
@@ -25,6 +28,10 @@ const Order = ({ addedProducts }) => {
 					{totalProductsPrice + totalProductsPrice / 10 + 5}
 				</p>
 			</div>
+			<button className="order-clear-cart-btn" onClick={clearCartEvent}>
+				Clear Cart <FontAwesomeIcon icon={faTrash} />
+			</button>
+			{children}
 		</div>
 	);
 };

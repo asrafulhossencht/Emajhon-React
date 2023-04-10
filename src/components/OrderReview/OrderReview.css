@@ -1,0 +1,21 @@
+.order-review {
+	margin: 50px 0px;
+	display: flex;
+    /* align-items: center; */
+	justify-content: center;
+	gap: 8rem;
+    position: relative;
+}
+
+.selected-products-container {
+    align-self: center;
+}
+
+.order-review-cart {
+	background: #ff99004d;
+	border-radius: 8px;
+    width: 450px;
+    height: 630px;
+    position: sticky;
+    top: 25%   ;
+}

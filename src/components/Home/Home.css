@@ -1,0 +1,54 @@
+.banner {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 160px 140px;
+	gap: 100px;
+	font-family: "Lato";
+}
+.discount-offer {
+	color: #ff9900;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 20px;
+	letter-spacing: 0.0015em;
+}
+.banner-title {
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 72px;
+	letter-spacing: -0.015em;
+	color: #1c2b35;
+	margin-top: 60px;
+}
+
+.banner-subtitle {
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 29px;
+	letter-spacing: 0.0025em;
+	color: #2a414f;
+	margin-bottom: 80px;
+}
+
+.shop-btn {
+	font-size: 25px;
+	line-height: 30px;
+	color: #0e161a;
+	background: #ff9900;
+	border-radius: 4px;
+	padding: 15px 30px;
+}
+
+.banner-image-container {
+    position: relative;
+}
+
+.banner-image-shadow {
+    background: #FFE0B3;
+    width: 450px;
+    height: 530px;
+    border-radius: 8px;
+    position: absolute;
+    top: 100px;
+}

@@ -1,33 +1,23 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { getSavedData, saveData } from "../../utilities/sotreData";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { clearCart, getSavedData, saveData } from "../../utilities/sotreData";
 import Order from "../Order/Order";
 import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
-	const [products, setProducts] = useState([]);
+	const products = useLoaderData();
 	const [addedProducts, setAddedProducts] = useState([]);
 	let saveDataToAddedProducts = true;
 
 	useEffect(() => {
-		const loadProducts = async () => {
-			const res = await fetch("../../../products.json");
-			const loadedProducts = await res.json();
-			setProducts(loadedProducts);
-		};
-		loadProducts();
-	}, []);
-
-	useEffect(() => {
-		console.log(saveDataToAddedProducts);
 		if (saveDataToAddedProducts) {
 			saveDataToAddedProducts = false;
 			setAddedProducts(getSavedData(products));
 		}
 	}, [products]);
-	console.log(addedProducts, "hi");
 
 	const addToCart = (product) => {
 		const matchedProduct = addedProducts.find(
@@ -45,10 +35,8 @@ const Shop = () => {
 		}
 	};
 
-	addedProducts &&
-		addedProducts.forEach((addedProduct) =>
-			saveData(addedProduct.id, addedProduct.quantity)
-		);
+	// store products on local storage
+	addedProducts.length > 0 && saveData(addedProducts);
 
 	return (
 		<div className="shop">
@@ -61,7 +49,18 @@ const Shop = () => {
 					></Product>
 				))}
 			</div>
-			<Order addedProducts={addedProducts}></Order>
+			<div className="orders-container">
+				<Order
+					addedProducts={addedProducts}
+					clearCartEvent={() => clearCart(setAddedProducts)}
+				>
+					<Link to="/order-review">
+						<button className="child-cart-btn">
+							Review Order <FontAwesomeIcon icon={faArrowRight} />
+						</button>
+					</Link>
+				</Order>
+			</div>
 		</div>
 	);
 };

@@ -1,9 +1,7 @@
 .order-carts-container {
-	background-color: #ff99004d;
 	padding: 1rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+	position: sticky;
+	top: 0;
 }
 
 .order-carts-container h2 {
@@ -22,16 +20,57 @@
 }
 
 .order-carts p {
-	font-size: 17px;
-	line-height: 20px;
-	letter-spacing: 0.005em;
-	color: #2a414f;
-	margin-bottom: 1rem;
-}
-
-.order-carts p.total-price {
+	font-weight: 400;
 	font-size: 21px;
 	line-height: 25px;
 	letter-spacing: 0.0015em;
+	color: #2a414f;
+	margin-bottom: 2rem;
+}
+
+.order-carts p.total-price {
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 30px;
 	color: #0e161a;
+}
+
+.order-clear-cart-btn {
+	width: 100%;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	background: #ff3030;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 21px;
+	line-height: 25px;
+	letter-spacing: 0.0015em;
+	border: none;
+	cursor: pointer;
+	margin-top: 60px;
+}
+
+.order-clear-cart-btn:hover {
+	background-color: #ff1818;
+}
+
+.order-clear-cart-btn svg,
+.child-cart-btn svg {
+	margin-left: auto;
+}
+
+.child-cart-btn {
+	width: 100%;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	background: #FF9900;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 21px;
+	line-height: 25px;
+	letter-spacing: 0.0015em;
+	border: none;
+	margin-top: 10px;
 }

@@ -1,9 +1,15 @@
-const saveData = (id, quantity) => {
-	const saveAllData = JSON.parse(localStorage.getItem("emajohnProducts"));
-	if (!saveAllData) {
+const saveData = (products) => {
+	const getAllSavedData = localStorage.getItem("emajohnProducts");
+	console.log(products.length);
+	console.log(getAllSavedData);
+	if (!getAllSavedData) {
 		localStorage.setItem("emajohnProducts", JSON.stringify({}));
 	} else {
-		saveAllData[id] = quantity;
+		const saveAllData = {};
+		products.forEach((product) => {
+			saveAllData[product.id] = product.quantity;
+		});
+		console.log(saveAllData);
 		localStorage.setItem("emajohnProducts", JSON.stringify(saveAllData));
 	}
 };
@@ -25,4 +31,9 @@ const getSavedData = (allProducts) => {
 	return allSavedProducts;
 };
 
-export { saveData, getSavedData };
+const clearCart = (setProductsFunc) => {
+	setProductsFunc([]);
+	localStorage.removeItem("emajohnProducts");
+};
+
+export { saveData, getSavedData, clearCart };
